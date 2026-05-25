@@ -35,14 +35,10 @@ hamburger.addEventListener('click', () => {
 
 hamOverlay.addEventListener('click', closeMenu);
 
-// Close menu when a link is clicked and scroll to section
 hamMenu.querySelectorAll('.ham-link').forEach(link => {
-  link.addEventListener('click', () => {
-    closeMenu();
-  });
+  link.addEventListener('click', () => { closeMenu(); });
 });
 
-// Escape key closes menu
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && hamMenu.classList.contains('open')) closeMenu();
 });
@@ -90,6 +86,13 @@ window.addEventListener('scroll', () => {
     });
     navbar.querySelector('.nav-logo').style.color = lerpColor(et, 255, 255, 255, 26, 26, 26);
 
+    // Logo imagen: blanco → oscuro con el fade
+    const logoImg = navbar.querySelector('.nav-logo-img');
+    if (logoImg) {
+      logoImg.style.filter  = `brightness(0) invert(${(1 - et).toFixed(3)})`;
+      logoImg.style.opacity = (0.7 + et * 0.2).toFixed(3);
+    }
+
     // Hamburger lines turn dark as navbar lightens
     hamburger.classList.toggle('dark', et > 0.5);
     hamburger.querySelectorAll('span').forEach(s => {
@@ -108,6 +111,13 @@ window.addEventListener('scroll', () => {
 
     navbar.querySelectorAll('.nav-links a').forEach(a => { a.style.color = ''; });
     navbar.querySelector('.nav-logo').style.color = '#fff';
+
+    // Logo imagen: vuelve a blanco
+    const logoImgReset = navbar.querySelector('.nav-logo-img');
+    if (logoImgReset) {
+      logoImgReset.style.filter  = 'brightness(0) invert(1)';
+      logoImgReset.style.opacity = '0.9';
+    }
 
     hamburger.classList.remove('dark');
     hamburger.querySelectorAll('span').forEach(s => { s.style.background = 'rgba(255,255,255,.8)'; });
