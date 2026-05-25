@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estética Langie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="#" class="nav-logo">Estética Langie</a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#">Sobre nosotras</a></li>
+    <li><a href="#">Galería</a></li>
+    <li><a href="#">Contacto</a></li>
+  </ul>
+
+  <!-- Hamburger button -->
+  <button class="hamburger" id="hamburger" aria-label="Menú de servicios" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- Hamburger dropdown menu -->
+<div class="ham-menu" id="hamMenu" aria-hidden="true">
+  <div class="ham-inner">
+    <p class="ham-label">Servicios</p>
+    <ul class="ham-list">
+      <li><a href="#unas" class="ham-link">
+        <span class="ham-num">01</span>
+        <span class="ham-name">Uñas</span>
+      </a></li>
+      <li><a href="#depilacion-cera" class="ham-link">
+        <span class="ham-num">02</span>
+        <span class="ham-name">Depilación con cera</span>
+      </a></li>
+      <li><a href="#depilacion-laser" class="ham-link">
+        <span class="ham-num">03</span>
+        <span class="ham-name">Depilación láser</span>
+      </a></li>
+      <li><a href="#lifting-pestanas" class="ham-link">
+        <span class="ham-num">04</span>
+        <span class="ham-name">Lifting de pestañas</span>
+      </a></li>
+      <li><a href="#masajes" class="ham-link">
+        <span class="ham-num">05</span>
+        <span class="ham-name">Masajes</span>
+      </a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="scroll-stage" id="stage">
+  <div class="sticky-frame">
+    <img class="hero-img" src="img/portada.png" alt="Estética Langie">
+    <div class="hero-title-wrap" id="titleWrap">
+      <h1 class="hero-title">Estética Langie</h1>
+    </div>
+    <div class="black-overlay" id="blackOverlay"></div>
+    <div class="pink-overlay"  id="pinkOverlay"></div>
+  </div>
+</div>
+
+<div class="main-content">
+
+  <!-- ── INTRO SERVICIOS ── -->
+  <section class="services-section" id="servicios">
+    <p class="section-label">Lo que ofrecemos</p>
+    <div class="services-intro-layout">
+
+      <div class="services-intro-left">
+        <h2 class="services-title">Tratamientos que te cuidan
+          <span>Belleza personalizada para cada clienta</span>
+        </h2>
+        <div class="services-tags">
+          <a href="#unas" class="stag">Uñas</a>
+          <a href="#depilacion-cera" class="stag">Depilación con cera</a>
+          <a href="#depilacion-laser" class="stag">Depilación láser</a>
+          <a href="#lifting-pestanas" class="stag">Lifting de pestañas</a>
+          <a href="#masajes" class="stag">Masajes</a>
+        </div>
+      </div>
+
+      <div class="services-intro-right">
+        <p class="services-intro-body">
+          En Estética Langie encontrarás todo lo que necesitas para cuidarte de verdad. Trabajamos con técnicas actualizadas y productos de alta calidad para que cada visita sea una experiencia, no solo un servicio.
+        </p>
+        <p class="services-intro-body">
+          Desde el cuidado más detallado de tus <strong>uñas</strong> —manicura, pedicura, gel o semipermanente— hasta tratamientos de <strong>depilación con cera</strong> para resultados suaves y duraderos, o la <strong>depilación láser</strong> como solución definitiva con la tecnología más avanzada.
+        </p>
+        <p class="services-intro-body">
+          Si lo que buscas es realzar la mirada, nuestros tratamientos de <strong>lifting de pestañas</strong> logran un efecto natural que dura semanas. Y cuando lo que necesitas es desconectar, nuestros <strong>masajes</strong> —relajantes, drenantes o maderoterapia— están diseñados para darte ese espacio que mereces.
+        </p>
+        <p class="services-intro-cta">Explora cada apartado y encuentra el tratamiento que más se adapta a ti.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SUBSECCIONES DETALLADAS
+  ══════════════════════════════════════ -->
+
+  <!-- ── UÑAS ── -->
+  <section class="sub-section" id="unas">
+    <div class="sub-header">
+      <p class="section-label">Uñas</p>
+      <h2 class="sub-title">Manicura & Pedicura<span>Cuidado y estilo para tus manos y pies</span></h2>
+    </div>
+    <div class="sub-grid">
+      <div class="sub-card"><p class="service-num">01</p><h3 class="service-name">Manicura clásica</h3><p class="service-detail">Lima, cutículas, hidratación y esmalte a elegir. Acabado natural impecable.</p><p class="service-price">20 €</p></div>
+      <div class="sub-card"><p class="service-num">02</p><h3 class="service-name">Semipermanente</h3><p class="service-detail">Esmalte de larga duración que aguanta hasta 3 semanas sin descascararse.</p><p class="service-price">28 €</p></div>
+      <div class="sub-card"><p class="service-num">03</p><h3 class="service-name">Uñas de gel</h3><p class="service-detail">Extensiones o reconstrucción con gel. Longitud y forma a tu gusto.</p><p class="service-price">Desde 38 €</p></div>
+      <div class="sub-card"><p class="service-num">04</p><h3 class="service-name">Pedicura completa</h3><p class="service-detail">Exfoliación, cuidado de durezas, hidratación profunda y esmalte.</p><p class="service-price">30 €</p></div>
+      <div class="sub-card"><p class="service-num">05</p><h3 class="service-name">Nail art</h3><p class="service-detail">Diseños exclusivos, degradados, piedras y decoraciones personalizadas.</p><p class="service-price">Desde 5 € / uña</p></div>
+      <div class="sub-card"><p class="service-num">06</p><h3 class="service-name">Manicura + Pedicura</h3><p class="service-detail">Pack completo manos y pies. Semipermanente incluido en ambas.</p><p class="service-price">50 €</p></div>
+      <div class="sub-card"><p class="service-num">07</p><h3 class="service-name">Retirada de gel</h3><p class="service-detail">Retirada segura sin dañar la uña natural. Hidratación posterior incluida.</p><p class="service-price">12 €</p></div>
+      <div class="sub-card"><p class="service-num">08</p><h3 class="service-name">Relleno de gel</h3><p class="service-detail">Mantenimiento de extensiones existentes. Resultado como el primer día.</p><p class="service-price">28 €</p></div>
+    </div>
+  </section>
+
+  <!-- ── DEPILACIÓN CON CERA ── -->
+  <section class="sub-section alt" id="depilacion-cera">
+    <div class="sub-header">
+      <p class="section-label">Depilación con cera</p>
+      <h2 class="sub-title">Suavidad duradera<span>Resultados limpios desde la primera sesión</span></h2>
+    </div>
+    <div class="sub-grid">
+      <div class="sub-card"><p class="service-num">01</p><h3 class="service-name">Labio superior</h3><p class="service-detail">Cera de baja temperatura. Rápido, preciso y sin irritación.</p><p class="service-price">6 €</p></div>
+      <div class="sub-card"><p class="service-num">02</p><h3 class="service-name">Axilas</h3><p class="service-detail">Piel suave por semanas. Cera caliente para mayor adherencia.</p><p class="service-price">10 €</p></div>
+      <div class="sub-card"><p class="service-num">03</p><h3 class="service-name">Ingles completas</h3><p class="service-detail">Zona bikini o brasileña, cera específica para pieles sensibles.</p><p class="service-price">Desde 18 €</p></div>
+      <div class="sub-card"><p class="service-num">04</p><h3 class="service-name">Piernas completas</h3><p class="service-detail">Media o pierna entera. Acabado uniforme y sin pelos olvidados.</p><p class="service-price">Desde 22 €</p></div>
+      <div class="sub-card"><p class="service-num">05</p><h3 class="service-name">Espalda</h3><p class="service-detail">Zonas extensas tratadas con cera caliente de alta adherencia.</p><p class="service-price">Desde 20 €</p></div>
+      <div class="sub-card"><p class="service-num">06</p><h3 class="service-name">Brazos</h3><p class="service-detail">Antebrazo o brazo completo. Piel sedosa de inmediato.</p><p class="service-price">Desde 14 €</p></div>
+      <div class="sub-card"><p class="service-num">07</p><h3 class="service-name">Cejas con cera</h3><p class="service-detail">Definición perfecta del arco. Incluye perfilado final a pinza.</p><p class="service-price">8 €</p></div>
+      <div class="sub-card"><p class="service-num">08</p><h3 class="service-name">Pack cuerpo completo</h3><p class="service-detail">Piernas, ingles, axilas y labio superior. Ahorra con el pack.</p><p class="service-price">55 €</p></div>
+    </div>
+  </section>
+
+  <!-- ── DEPILACIÓN LÁSER ── -->
+  <section class="sub-section" id="depilacion-laser">
+    <div class="sub-header">
+      <p class="section-label">Depilación láser</p>
+      <h2 class="sub-title">Eliminación definitiva<span>Tecnología avanzada para resultados permanentes</span></h2>
+    </div>
+    <div class="sub-grid">
+      <div class="sub-card"><p class="service-num">01</p><h3 class="service-name">Labio superior</h3><p class="service-detail">Zona pequeña de alta precisión. Sesión express en minutos.</p><p class="service-price">Desde 30 €</p></div>
+      <div class="sub-card"><p class="service-num">02</p><h3 class="service-name">Axilas</h3><p class="service-detail">Una de las zonas con mejores resultados. Visible desde la 2.ª sesión.</p><p class="service-price">Desde 40 €</p></div>
+      <div class="sub-card"><p class="service-num">03</p><h3 class="service-name">Ingles completas</h3><p class="service-detail">Zona bikini o brasileña. Tratamiento adaptado a cada tono de piel.</p><p class="service-price">Desde 55 €</p></div>
+      <div class="sub-card"><p class="service-num">04</p><h3 class="service-name">Piernas completas</h3><p class="service-detail">Media pierna, pierna entera o combinada con ingles. Paquetes a medida.</p><p class="service-price">Desde 90 €</p></div>
+      <div class="sub-card"><p class="service-num">05</p><h3 class="service-name">Espalda</h3><p class="service-detail">Zonas amplias tratadas en pocas sesiones con láser de diodo.</p><p class="service-price">Desde 80 €</p></div>
+      <div class="sub-card"><p class="service-num">06</p><h3 class="service-name">Brazos</h3><p class="service-detail">Antebrazo o brazo completo. Piel completamente libre de vello.</p><p class="service-price">Desde 60 €</p></div>
+      <div class="sub-card"><p class="service-num">07</p><h3 class="service-name">Facial completa</h3><p class="service-detail">Bozo, mentón, patillas y cuello. Resultados naturales y duraderos.</p><p class="service-price">Desde 70 €</p></div>
+      <div class="sub-card"><p class="service-num">08</p><h3 class="service-name">Cuerpo completo</h3><p class="service-detail">Pack integral con todas las zonas. Precio cerrado por bono de sesiones.</p><p class="service-price">Consultar</p></div>
+    </div>
+  </section>
+
+  <!-- ── LIFTING DE PESTAÑAS ── -->
+  <section class="sub-section alt" id="lifting-pestanas">
+    <div class="sub-header">
+      <p class="section-label">Lifting de pestañas</p>
+      <h2 class="sub-title">La mirada perfecta<span>Curva natural con efecto duradero</span></h2>
+    </div>
+    <div class="sub-grid">
+      <div class="sub-card"><p class="service-num">01</p><h3 class="service-name">Lifting clásico</h3><p class="service-detail">Rizador permanente que levanta las pestañas naturales hasta 8 semanas.</p><p class="service-price">35 €</p></div>
+      <div class="sub-card"><p class="service-num">02</p><h3 class="service-name">Lifting + tinte</h3><p class="service-detail">Rizado permanente combinado con tinte negro intenso para más volumen visual.</p><p class="service-price">45 €</p></div>
+      <div class="sub-card"><p class="service-num">03</p><h3 class="service-name">Laminado de cejas</h3><p class="service-detail">Efecto peinado y forma definida para cejas con duración de 6–8 semanas.</p><p class="service-price">38 €</p></div>
+      <div class="sub-card"><p class="service-num">04</p><h3 class="service-name">Laminado + tinte cejas</h3><p class="service-detail">Pack completo: laminado, tinte y diseño del arco a medida de tu rostro.</p><p class="service-price">50 €</p></div>
+      <div class="sub-card"><p class="service-num">05</p><h3 class="service-name">Henna de cejas</h3><p class="service-detail">Pigmentación natural que tiñe piel y pelo. Dura hasta 4 semanas en piel.</p><p class="service-price">28 €</p></div>
+      <div class="sub-card"><p class="service-num">06</p><h3 class="service-name">Diseño de cejas</h3><p class="service-detail">Mapeo facial, depilación y perfilado para encontrar tu arco ideal.</p><p class="service-price">18 €</p></div>
+      <div class="sub-card"><p class="service-num">07</p><h3 class="service-name">Pestañas pelo a pelo</h3><p class="service-detail">Extensiones individuales con efecto totalmente natural. Relleno mensual.</p><p class="service-price">Desde 65 €</p></div>
+      <div class="sub-card"><p class="service-num">08</p><h3 class="service-name">Pack mirada completa</h3><p class="service-detail">Lifting de pestañas + laminado de cejas + tinte en ambos. Todo en una sesión.</p><p class="service-price">75 €</p></div>
+    </div>
+  </section>
+
+  <!-- ── MASAJES ── -->
+  <section class="sub-section" id="masajes">
+    <div class="sub-header">
+      <p class="section-label">Masajes</p>
+      <h2 class="sub-title">Tiempo para ti<span>Rituales que cuidan cuerpo y mente</span></h2>
+    </div>
+    <div class="sub-grid">
+      <div class="sub-card"><p class="service-num">01</p><h3 class="service-name">Relajante</h3><p class="service-detail">Técnicas suaves con aceites esenciales para liberar tensión acumulada.</p><p class="service-price">55 €</p></div>
+      <div class="sub-card"><p class="service-num">02</p><h3 class="service-name">Drenaje linfático</h3><p class="service-detail">Estimula la circulación y elimina la retención de líquidos. 60 min.</p><p class="service-price">60 €</p></div>
+      <div class="sub-card"><p class="service-num">03</p><h3 class="service-name">Descontracturante</h3><p class="service-detail">Presión profunda en nudos musculares. Ideal para cervicales y lumbares.</p><p class="service-price">65 €</p></div>
+      <div class="sub-card"><p class="service-num">04</p><h3 class="service-name">Masaje facial</h3><p class="service-detail">Técnica japonesa Kobido para tonificar, drenar y rejuvenecer el rostro.</p><p class="service-price">45 €</p></div>
+      <div class="sub-card"><p class="service-num">05</p><h3 class="service-name">Masaje con piedras</h3><p class="service-detail">Calor terapéutico de piedras volcánicas para relajación profunda.</p><p class="service-price">70 €</p></div>
+      <div class="sub-card"><p class="service-num">06</p><h3 class="service-name">Masaje anticelulítico</h3><p class="service-detail">Técnicas reductoras combinadas con amasamiento intenso en zonas diana.</p><p class="service-price">60 €</p></div>
+      <div class="sub-card"><p class="service-num">07</p><h3 class="service-name">Masaje prenatal</h3><p class="service-detail">Adaptado para embarazadas. Alivia tensión lumbar y mejora el descanso.</p><p class="service-price">55 €</p></div>
+      <div class="sub-card"><p class="service-num">08</p><h3 class="service-name">Ritual completo</h3><p class="service-detail">Exfoliación + envoltura corporal + masaje relajante. 90 minutos de bienestar.</p><p class="service-price">90 €</p></div>
+    </div>
+  </section>
+
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
