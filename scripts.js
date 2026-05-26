@@ -5,6 +5,7 @@ const blackOverlay = document.getElementById('blackOverlay');
 const pinkOverlay  = document.getElementById('pinkOverlay');
 const hamburger    = document.getElementById('hamburger');
 const hamMenu      = document.getElementById('hamMenu');
+const sloganWrap = document.getElementById('sloganWrap');
 
 // ─── HAMBURGER OVERLAY (inject once) ───
 const hamOverlay = document.createElement('div');
@@ -71,6 +72,8 @@ window.addEventListener('scroll', () => {
   // FASE 2 (0.5 → 1): negro → rosa
   const pinkOp = mapRange(progress, 0.5, 1, 0, 1);
   pinkOverlay.style.opacity = pinkOp;
+  sloganWrap.style.opacity   = mapRange(progress, 0.58, 0.9, 0, 1);
+  sloganWrap.style.transform = `translate(-50%, -50%) scale(${mapRange(progress, 0.55, 1, 0.6, 1)})`;
 
   // Navbar + hamburger sincronizados con la transición rosa
   if (progress >= 0.35) {
