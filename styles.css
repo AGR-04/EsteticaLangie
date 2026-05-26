@@ -183,13 +183,13 @@ nav.scrolled { padding: 16px 48px; }
 .services-section { padding: 72px 48px 96px; }
 .section-label {
   font-size: 10px; letter-spacing: .35em; text-transform: uppercase;
-  color: var(--pink-dark); margin-bottom: 48px;
+  color: var(--pink-dark); 
   display: flex; align-items: center; gap: 16px;
 }
 .section-label::after { content: ''; flex: 1; height: .5px; max-width: 80px; background: var(--pink-dark); opacity: .5; }
 
 .services-intro-layout {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
 }
 
 .services-title {
@@ -269,6 +269,17 @@ nav.scrolled { padding: 16px 48px; }
 .service-name { font-family: 'Great Vibes', cursive; font-size: 24px; font-weight: 400; color: var(--text-dark); margin-bottom: 10px; }
 .service-detail { font-size: 12px; line-height: 1.7; color: var(--text-muted); font-weight: 300; }
 .service-price { margin-top: 20px; font-size: 12px; font-weight: 400; color: var(--text-dark); letter-spacing: .05em; }
+.services-intro-box {
+  background: #f2dde2;
+  border-radius: 16px;
+  padding: 36px 40px;
+}
+.services-intro-left {
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 
 /* ─── FOOTER ─── */
@@ -305,7 +316,7 @@ nav.scrolled { padding: 16px 48px; }
 
 .footer-enlace {
   display: flex; align-items: flex-start; gap: 10px;
-  font-size: 13px; font-weight: 300; line-height: 1.6;
+  font-size: 16px; font-weight: 300; line-height: 1.6;
   color: var(--text-muted); text-decoration: none;
   margin-bottom: 14px;
   transition: color .3s ease;
@@ -316,7 +327,7 @@ nav.scrolled { padding: 16px 48px; }
 
 .footer-icono {
   width: 15px; height: 15px; flex-shrink: 0;
-  opacity: .5; margin-top: 2px;
+  opacity: .5; margin-top: 5px;
 }
 
 .footer-copyright {
