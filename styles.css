@@ -383,26 +383,81 @@ nav.scrolled { padding: 16px 48px; }
 }
 .galeria-item:hover img { transform: scale(1.04); }
 
-/* ─── RESPONSIVE ─── */
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+
+/* ── Tablet grande (≤1024px) ── */
 @media (max-width: 1024px) {
   .sub-grid { grid-template-columns: repeat(2, 1fr); }
   .services-intro-layout { gap: 48px; }
 }
+
+/* ── Tablet (≤768px) ── */
 @media (max-width: 768px) {
   nav { padding: 20px 24px; }
   nav.scrolled { padding: 14px 24px; }
   .nav-links { display: none; }
+  .nav-logo { font-size: 22px; }
+  .nav-logo-img { width: 36px; height: 36px; }
+
+  .hero-title { font-size: clamp(42px, 8vw, 72px); gap: 14px; }
+  .hero-logo-img { width: clamp(80px, 14vw, 130px); height: clamp(80px, 14vw, 130px); }
+  .hero-subtitle { font-size: clamp(14px, 4vw, 24px); letter-spacing: 0.2em; margin-top: 10px; }
+  .hero-phone { font-size: clamp(13px, 3vw, 18px); margin-top: 8px; }
+  .hero-slogan { font-size: clamp(48px, 10vw, 90px); }
+
   .services-section { padding: 48px 24px 72px; }
   .services-intro-layout { grid-template-columns: 1fr; gap: 40px; }
-  .sub-section { padding: 56px 24px 60px; }
+  .services-intro-box { padding: 24px 24px; }
+
+  .sub-section { padding: 48px 24px 56px; }
   .sub-grid { grid-template-columns: 1fr 1fr; }
-  .ham-menu { width: 100%; }
+  .sub-header { margin-bottom: 32px; }
+
+  .ham-menu { width: 85vw; max-width: 320px; }
+
   .footer { padding: 48px 24px 28px; }
   .footer-columnas { grid-template-columns: 1fr; gap: 32px; }
+
   .galeria-header { padding: 0 24px 40px; }
   .galeria-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ── Móvil (≤480px) ── */
 @media (max-width: 480px) {
+  nav { padding: 16px 20px; }
+  nav.scrolled { padding: 12px 20px; }
+
+  .hero-title { font-size: clamp(34px, 9vw, 56px); gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .hero-logo-img { width: clamp(60px, 16vw, 90px); height: clamp(60px, 16vw, 90px); }
+  .hero-subtitle { font-size: clamp(12px, 4.5vw, 20px); letter-spacing: 0.15em; margin-top: 8px; }
+  .hero-phone { font-size: clamp(11px, 3.5vw, 16px); margin-top: 6px; }
+  .hero-slogan { font-size: clamp(38px, 11vw, 70px); }
+
+  /* Evita que el hero-title-wrap se salga de pantalla */
+  .hero-title-wrap { width: 92vw; white-space: normal; }
+
+  .services-section { padding: 40px 16px 56px; }
+  .services-intro-box { padding: 20px 18px; }
+  .services-intro-body { font-size: 14px; }
+
+  .sub-section { padding: 40px 16px 48px; }
   .sub-grid { grid-template-columns: 1fr; }
+
   .galeria-grid { grid-template-columns: 1fr; }
+  .galeria-header { padding: 0 16px 32px; }
+
+  .footer { padding: 40px 16px 24px; }
+  .footer-enlace { font-size: 14px; }
+
+  .ham-menu { width: 100vw; padding: 80px 28px 40px; }
+}
+
+/* ── Móvil muy pequeño (≤360px) ── */
+@media (max-width: 360px) {
+  .hero-title { font-size: 28px; }
+  .hero-logo-img { width: 52px; height: 52px; }
+  .hero-subtitle { font-size: 11px; }
+  .hero-phone { font-size: 11px; }
 }
