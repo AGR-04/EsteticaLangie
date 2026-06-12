@@ -126,3 +126,140 @@ window.addEventListener('scroll', () => {
     hamburger.querySelectorAll('span').forEach(s => { s.style.background = 'rgba(255,255,255,.8)'; });
   }
 }, { passive: true });
+
+/* ═══════════════════════════════════════
+   CARRUSEL COVERFLOW · INSTALACIONES
+═══════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', () => {
+  const track    = document.getElementById('coverflowTrack');
+  const dotsWrap = document.getElementById('coverflowDots');
+  const prevBtn  = document.getElementById('coverflowPrev');
+  const nextBtn  = document.getElementById('coverflowNext');
+
+  if (track) {
+    // Lista de imágenes de instalaciones (ajusta según tus archivos)
+    const imagenes = [
+      'img/instalaciones/instalaciones1.jpg',
+      'img/instalaciones/instalaciones2.jpg',
+      'img/instalaciones/instalaciones3.jpg',
+      'img/instalaciones/instalaciones4.jpg',
+      'img/instalaciones/instalaciones5.jpg',
+    ];
+
+    let current = 0;
+    const slides = [];
+
+    // Crear diapositivas
+    imagenes.forEach((src, i) => {
+      const slide = document.createElement('div');
+      slide.className = 'coverflow-slide';
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = 'Instalaciones Estética Langie ' + (i + 1);
+      img.loading = 'lazy';
+      slide.appendChild(img);
+      slide.addEventListener('click', () => goTo(i));
+      track.appendChild(slide);
+      slides.push(slide);
+    });
+
+    // Crear puntos
+    imagenes.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'coverflow-dot';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', 'Ir a imagen ' + (i + 1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    function render() {
+      const total = slides.length;
+      slides.forEach((slide, i) => {
+        // Distancia relativa más corta (circular)
+        let offset = i - current;
+        if (offset > total / 2) offset -= total;
+        if (offset < -total / 2) offset += total;
+
+        const abs = Math.abs(offset);
+        const translateX = offset * 55;        // separación horizontal (%)
+        const rotateY = offset * -35;          // giro 3D
+        const scale = abs === 0 ? 1 : 0.82 - (abs - 1) * 0.06;
+        const z = -abs * 120;
+        const opacity = abs > 2 ? 0 : 1;
+
+        slide.style.transform =
+          `translateX(${translateX}%) translateZ(${z}px) rotateY(${rotateY}deg) scale(${scale})`;
+        slide.style.opacity = String(opacity);
+        slide.style.zIndex = String(100 - abs);
+        slide.classList.toggle('is-active', offset === 0);
+        slide.classList.toggle('is-side', offset !== 0);
+        slide.style.pointerEvents = abs > 2 ? 'none' : 'auto';
+      });
+
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+    }
+
+    // ─── Reproducción automática cada 4 segundos ───
+    const AUTOPLAY_MS = 4000;
+    let autoplayTimer = null;
+    function startAutoplay() {
+      stopAutoplay();
+      autoplayTimer = setInterval(next, AUTOPLAY_MS);
+    }
+    function stopAutoplay() {
+      if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
+    }
+    // Reinicia el temporizador tras una interacción manual
+    function resetAutoplay() { startAutoplay(); }
+
+    function goTo(i) {
+      const total = slides.length;
+      current = (i % total + total) % total;
+      render();
+    }
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    nextBtn.addEventListener('click', () => { next(); resetAutoplay(); });
+    prevBtn.addEventListener('click', () => { prev(); resetAutoplay(); });
+
+    // Navegación con teclado cuando el carrusel está visible
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') { next(); resetAutoplay(); }
+      if (e.key === 'ArrowLeft')  { prev(); resetAutoplay(); }
+    });
+
+    // Soporte de arrastre / swipe táctil
+    let startX = null;
+    const cover = document.getElementById('coverflow');
+    function onStart(x) { startX = x; }
+    function onEnd(x) {
+      if (startX === null) return;
+      const diff = x - startX;
+      if (Math.abs(diff) > 50) { diff < 0 ? next() : prev(); resetAutoplay(); }
+      startX = null;
+    }
+    cover.addEventListener('touchstart', e => onStart(e.touches[0].clientX), { passive: true });
+    cover.addEventListener('touchend',   e => onEnd(e.changedTouches[0].clientX));
+    cover.addEventListener('mousedown',  e => onStart(e.clientX));
+    cover.addEventListener('mouseup',    e => onEnd(e.clientX));
+
+    // Pausa el autoplay al pasar el ratón por encima y lo reanuda al salir
+    cover.addEventListener('mouseenter', stopAutoplay);
+    cover.addEventListener('mouseleave', startAutoplay);
+
+    // Pausa cuando la pestaña no está visible (ahorra recursos)
+    document.addEventListener('visibilitychange', () => {
+      document.hidden ? stopAutoplay() : startAutoplay();
+    });
+
+    // Click en una diapositiva también reinicia el temporizador
+    slides.forEach(slide => slide.addEventListener('click', resetAutoplay));
+    dots.forEach(dot => dot.addEventListener('click', resetAutoplay));
+
+    render();
+    startAutoplay();
+  }
+});

@@ -282,6 +282,126 @@ nav.scrolled { padding: 16px 48px; }
   justify-content: center;
 }
 
+/* ══════════════════════════════════════
+   INSTALACIONES (CARRUSEL COVERFLOW)
+══════════════════════════════════════ */
+.instalaciones-section {
+  padding: 72px 0 88px;
+  background: rgba(238,205,212,.35);
+  overflow: hidden;
+}
+.instalaciones-header {
+  padding: 0 48px 48px;
+}
+.instalaciones-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 400; line-height: 1.2; color: var(--text-dark);
+  margin-top: 12px;
+}
+.instalaciones-title span {
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(13px, 1.6vw, 16px);
+  font-weight: 300; display: block; margin-top: 6px;
+  color: var(--pink-dark); letter-spacing: .05em;
+}
+
+/* Escenario del coverflow */
+.coverflow {
+  position: relative;
+  width: 100%;
+  height: clamp(280px, 42vw, 540px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1600px;
+}
+
+.coverflow-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+/* Cada diapositiva se posiciona en el centro y JS la transforma */
+.coverflow-slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(220px, 30vw, 420px);
+  height: clamp(260px, 38vw, 480px);
+  margin-left: calc(clamp(220px, 30vw, 420px) / -2);
+  margin-top: calc(clamp(260px, 38vw, 480px) / -2);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--pink-mid);
+  box-shadow: 0 20px 50px rgba(0,0,0,.18);
+  transition: transform .8s cubic-bezier(.22,.61,.36,1),
+              opacity .8s cubic-bezier(.22,.61,.36,1),
+              filter .8s cubic-bezier(.22,.61,.36,1);
+  will-change: transform, opacity, filter;
+  cursor: pointer;
+}
+.coverflow-slide img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Velo que oscurece ligeramente las imágenes laterales */
+.coverflow-slide::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(238,205,212,.45);
+  opacity: 0;
+  transition: opacity .8s ease;
+  pointer-events: none;
+}
+.coverflow-slide.is-side::after { opacity: 1; }
+.coverflow-slide.is-active::after { opacity: 0; }
+
+/* Flechas de navegación */
+.coverflow-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: .5px solid rgba(201,149,159,.5);
+  background: rgba(255,255,255,.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: var(--pink-dark);
+  transition: background .3s ease, color .3s ease, transform .3s ease;
+}
+.coverflow-arrow:hover { background: #fff; color: var(--text-dark); }
+.coverflow-arrow:active { transform: translateY(-50%) scale(.92); }
+.coverflow-arrow svg { width: 22px; height: 22px; }
+.coverflow-prev { left: clamp(12px, 4vw, 48px); }
+.coverflow-next { right: clamp(12px, 4vw, 48px); }
+
+/* Puntos indicadores */
+.coverflow-dots {
+  display: flex; justify-content: center; align-items: center;
+  gap: 10px; margin-top: 40px;
+  flex-wrap: wrap;
+  padding: 0 24px;
+}
+.coverflow-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  border: none; padding: 0; cursor: pointer;
+  background: rgba(184,128,141,.35);
+  transition: background .3s ease, transform .3s ease, width .3s ease;
+}
+.coverflow-dot:hover { background: rgba(184,128,141,.6); }
+.coverflow-dot.active { background: var(--pink-dark); width: 24px; border-radius: 100px; }
+
 /* ─── FOOTER ─── */
 .footer {
   background: #f2dde2;
@@ -422,6 +542,10 @@ nav.scrolled { padding: 16px 48px; }
 
   .galeria-header { padding: 0 24px 40px; }
   .galeria-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .instalaciones-header { padding: 0 24px 40px; }
+  .coverflow-arrow { width: 40px; height: 40px; }
+  .coverflow-arrow svg { width: 18px; height: 18px; }
 }
 
 /* ── Móvil (≤480px) ── */
@@ -447,6 +571,14 @@ nav.scrolled { padding: 16px 48px; }
 
   .galeria-grid { grid-template-columns: 1fr; }
   .galeria-header { padding: 0 16px 32px; }
+
+  .instalaciones-section { padding: 48px 0 64px; }
+  .instalaciones-header { padding: 0 16px 32px; }
+  .coverflow { height: clamp(300px, 80vw, 420px); }
+  .coverflow-slide { width: clamp(180px, 58vw, 280px); height: clamp(240px, 76vw, 360px); margin-left: calc(clamp(180px, 58vw, 280px) / -2); margin-top: calc(clamp(240px, 76vw, 360px) / -2); }
+  .coverflow-prev { left: 8px; }
+  .coverflow-next { right: 8px; }
+  .coverflow-dots { margin-top: 28px; }
 
   .footer { padding: 40px 16px 24px; }
   .footer-enlace { font-size: 14px; }
