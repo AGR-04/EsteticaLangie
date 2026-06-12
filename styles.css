@@ -106,6 +106,8 @@ nav.scrolled { padding: 16px 48px; }
   color: var(--pink-dark); margin-bottom: 32px;
   display: flex; align-items: center; gap: 12px;
 }
+/* Separación entre el segundo grupo de enlaces y su etiqueta */
+.ham-list + .ham-label { margin-top: 40px; }
 .ham-label::after { content: ''; flex: 1; height: .5px; background: var(--pink-dark); opacity: .5; }
 
 .ham-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
@@ -183,7 +185,7 @@ nav.scrolled { padding: 16px 48px; }
 .services-section { padding: 72px 48px 96px; }
 .section-label {
   font-size: 10px; letter-spacing: .35em; text-transform: uppercase;
-  color: var(--pink-dark); 
+  color: var(--pink-dark);
   display: flex; align-items: center; gap: 16px;
 }
 .section-label::after { content: ''; flex: 1; height: .5px; max-width: 80px; background: var(--pink-dark); opacity: .5; }
@@ -238,7 +240,6 @@ nav.scrolled { padding: 16px 48px; }
 
 /* ─── SUB-SECTIONS ─── */
 .sub-section { padding: 72px 48px 80px; }
-.sub-section.alt { background: rgba(238,205,212,.35); }
 
 .sub-header { margin-bottom: 48px; }
 .sub-title {
@@ -442,8 +443,6 @@ nav.scrolled { padding: 16px 48px; }
   transition: color .3s ease;
 }
 .footer-enlace:hover { color: var(--text-dark); }
-.footer-direccion { cursor: default; }
-.footer-direccion:hover { color: var(--text-muted); }
 
 .footer-icono {
   width: 15px; height: 15px; flex-shrink: 0;
